@@ -221,41 +221,60 @@ export default defineComponent ({
     </div>
 
     <jet-modal :show="contacting" closable="true" @close="contacting=null">
-        <div class="bg-gray-50 shadow-2xl p-8">
-            <p class="text-gray-600 text-2xl font-extrabold text-center">
-            Let me know some details
-        </p>
+        
+            <!-- <div v-if="$page.props.flash.contacted"
+                 class="bg-green-400 shadow-2xl p-8 text-center font-bold"
+            >
+                <p class="text-8xl m-5">👍</p>
+                <p class="text-5xl font-bold m-2">Thanks!</p>
+                <p class="text=xl m-2">I'll get back to you soon.</p>
+            </div> -->
 
-       <form 
-            class="flex flex-col items-center p-16"
-            @submit.prevent="submit"
-        >
+             <div class="bg-gray-50 shadow-2xl p-8">
+                <p class="text-gray-600 text-2xl font-extrabold text-center">
+                    Let me know some details
+                </p>
 
-            <jet-input 
-                class="px-5 py-3 w-96 border border-gray-600 rounded"
-                type="email"
-                name="email"
-                placeholder="Your email"
-                v-model="form.email"
-            ></jet-input>
 
-            <jet-input-error :message="form.errors.email" />
+            <form 
+                    class="flex flex-col items-center p-16"
+                    @submit.prevent="submit"
+                >
 
-            <textarea 
-                name="message" 
-                class="px-5 py-3 w-96 border border-gray-600 rounded mt-5"
-                placeholder="The details :)"
-                v-model="form.message"
-                ></textarea>
+                    <jet-input 
+                        class="px-5 py-3 w-96 border border-gray-600 rounded"
+                        type="email"
+                        name="email"
+                        placeholder="Your email"
+                        v-model="form.email"
+                    ></jet-input>
 
-            <jet-input-error :message="form.errors.message" />
+                    <jet-input-error :message="form.errors.email" />
 
-            <jet-button class="px-5 py-3 mt-5 w-96 bg-purple-600 justify-center rounded-xl text-sm">
-                Get in touch
-            </jet-button>
-       </form>
+                    <textarea 
+                        name="message" 
+                        class="px-5 py-3 w-96 border border-gray-600 rounded mt-5"
+                        placeholder="The details :)"
+                        v-model="form.message"
+                        ></textarea>
 
-        </div>
+                    <jet-input-error :message="form.errors.message" />
+
+                    <jet-button class="px-5 py-3 mt-5 w-96 bg-purple-600 justify-center rounded-xl text-sm "
+                                    :disabled="form.processing">
+                        <span v-show="form.processing"
+                            class="animate-spin mr-1">
+                            &#9696;
+                        </span>
+
+                        <span v-show="!form.processing">
+                            Get in touch
+                        </span>
+                    </jet-button>
+            </form>
+
+
+        </div>    
     </jet-modal>
 
 </template>
