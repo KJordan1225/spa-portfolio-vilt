@@ -144,7 +144,7 @@ export default defineComponent ({
             </div>
         </Section>
         
-        <Section id="skills" class="bg-gray-200 text-gray-800 h-screen">
+        <Section id="skills" class="bg-gray-200 text-gray-800">
             <h2 class="text-6xl font-bold pt-3">Skills</h2>
 
             <div class="grid grid-cols-2">

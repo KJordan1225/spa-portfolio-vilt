@@ -43,8 +43,8 @@
                             <td class="px-6 py-4">
                                 <p>
                                     <span class="mr-5 p-4 rounded" :class="project.color">
-                                    </span>
-                                    {{ project.color }}
+                                        {{ project.color }}
+                                    </span>                                    
                                 </p>
                             </td>
                             <td class="px-6 py-4" :class="project.color">
