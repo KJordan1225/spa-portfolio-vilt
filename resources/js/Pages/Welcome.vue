@@ -44,12 +44,20 @@ export default defineComponent ({
                  + this.projects[index].icon_name
                  + 'Icon.js')
             );
+        },
+
+        submit(){
+            this.form.post(route('contact'));
         }
     },
 
     data() {
         return {
             contacting: null,
+            form: this.$inertia.form({
+                'email':'',
+                'message':'',
+            }),
         }
     }
     
@@ -216,19 +224,24 @@ export default defineComponent ({
             Let me know some details
         </p>
 
-       <form class="flex flex-col items-center p-16">
+       <form 
+            class="flex flex-col items-center p-16"
+            @submit.prevent="submit"
+        >
 
             <jet-input 
                 class="px-5 py-3 w-96 border border-gray-600 rounded"
                 type="email"
                 name="email"
                 placeholder="Your email"
+                v-model="form.email"
             ></jet-input>
 
             <textarea 
                 name="message" 
                 class="px-5 py-3 w-96 border border-gray-600 rounded mt-5"
                 placeholder="The details :)"
+                v-model="form.message"
                 ></textarea>
 
             <jet-button class="px-5 py-3 mt-5 w-96 bg-purple-600 justify-center rounded-xl text-sm">
