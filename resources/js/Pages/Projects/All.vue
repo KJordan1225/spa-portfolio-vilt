@@ -47,7 +47,7 @@
                                     {{ project.color }}
                                 </p>
                             </td>
-                            <td class="px-6 py-4" :class="project-color">
+                            <td class="px-6 py-4" :class="project.color">
                                 <component :is="componentName(index)"></component>
                             </td>
                             <td class="px-6 py-4">
