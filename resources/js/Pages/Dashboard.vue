@@ -37,7 +37,9 @@ import { Link } from '@inertiajs/inertia-vue3';
                                 text-indigo-500
                                 borcer-b
                                 border-gray-400
-                            ">
+                            "
+                                :href="route('skills.index')"
+                            >
                                 Skills
                             </Link>
                         </li>
@@ -50,7 +52,9 @@ import { Link } from '@inertiajs/inertia-vue3';
                                 text-indigo-500
                                 borcer-b
                                 border-gray-400
-                            ">
+                            "                            
+                                :href="route('projects.index')"
+                            >
                                 Projects
                             </Link>
                         </li>
