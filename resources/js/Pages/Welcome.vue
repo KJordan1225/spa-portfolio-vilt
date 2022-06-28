@@ -5,6 +5,7 @@ import { Head, Link } from '@inertiajs/inertia-vue3'
 import JetApplicationMark from '@/Jetstream/ApplicationMark'
 import JetButton from '@/Jetstream/Button'
 import JetInput from '@/Jetstream/Input'
+import JetInputError from '@/Jetstream/InputError'
 import JetModal from '@/Jetstream/Modal'
 
 import Section from '@/components/Section'
@@ -22,6 +23,7 @@ export default defineComponent ({
         JetButton,
         JetModal,
         JetInput,
+        JetInputError,
         Section,
         Skills,
         Project,
@@ -237,12 +239,16 @@ export default defineComponent ({
                 v-model="form.email"
             ></jet-input>
 
+            <jet-input-error :message="form.errors.email" />
+
             <textarea 
                 name="message" 
                 class="px-5 py-3 w-96 border border-gray-600 rounded mt-5"
                 placeholder="The details :)"
                 v-model="form.message"
                 ></textarea>
+
+            <jet-input-error :message="form.errors.message" />
 
             <jet-button class="px-5 py-3 mt-5 w-96 bg-purple-600 justify-center rounded-xl text-sm">
                 Get in touch
