@@ -1,5 +1,5 @@
 <script>
-import { defineComponent } from 'vue'
+import { defineAsyncComponent, defineComponent } from 'vue'
 import { Head, Link } from '@inertiajs/inertia-vue3'
 
 import JetApplicationMark from '@/Jetstream/ApplicationMark'
@@ -7,6 +7,9 @@ import JetButton from '@/Jetstream/Button'
 
 import Section from '@/components/Section'
 import Skills from '@/components/Skills'
+import Project from '@/components/Project'
+
+import { BeakerIcon } from '@heroicons/vue/solid'
 
 export default defineComponent ({
     components: {
@@ -17,14 +20,29 @@ export default defineComponent ({
         JetButton,
         Section,
         Skills,
-
+        Project,
+        BeakerIcon,
+        
     }, 
 
     props: {
     canLogin: Boolean,
     canRegister: Boolean,
     skills: Object,
+    projects: Object,
+    },
+
+    methods: {
+        componentName(index){
+            return defineAsyncComponent(() =>
+                import('@heroicons/vue/solid/'
+                 + this.projects[index].icon_name
+                 + 'Icon.js')
+            );
+        }
     }
+    
+    
 })
 </script>
 
@@ -131,6 +149,16 @@ export default defineComponent ({
         <Section class="bg-gray-600 text-gray-200 h-screen">
             <h2 class="text-6xl font-bold pt-3">Projects</h2>
 
+            <div v-for="(project, index) in projects" :key="project">
+                <Project
+                    :title="project.title"
+                    :description="project.description"
+                    :color="project.color"
+                >
+                    <component :is="componentName(index)"></component>
+                </Project>
+            </div>
+
             <div class="flex justify-center mt-10">
                 <JetButton class="
                     bg-purple-100
@@ -158,9 +186,9 @@ export default defineComponent ({
                 &copy; KeithJordan. All Rights Reserved.
             </p>
             <div class="flex justify-evenly items-center">
-                GitHub
-                Twitter
-                StackOverflow
+                <Link class="border-b pb-1 px-2 hover:text-gray-50" href="#">GitHub</Link>
+                <Link class="border-b pb-1 px-2 hover:text-gray-50" href="#">Twitter</Link>
+                <Link class="border-b pb-1 px-2 hover:text-gray-50" href="#">StackOverflow</Link>
             </div>
         </Section>
     </div>

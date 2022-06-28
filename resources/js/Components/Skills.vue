@@ -2,7 +2,7 @@
     <section class="
         flex
         items-center
-        px-44
+        px-24
         py-6
         justify-between
     ">
