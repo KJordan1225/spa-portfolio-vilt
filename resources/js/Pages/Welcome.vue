@@ -134,7 +134,8 @@ export default defineComponent ({
                 "
                     @click="contacting = true"
                 >
-                    Let's chat
+                    {{ $page.props.flash.contacted ? 'Thanks' : "Let's chat"}}
+
                 </JetButton>               
             </div>
             </div>
@@ -165,7 +166,8 @@ export default defineComponent ({
                 "
                     @click="contacting = true"
                 >
-                    Get in touch
+                    {{ $page.props.flash.contacted ? 'Thanks' : "Get in touch"}}                   
+
                 </JetButton>
             </div>
            
@@ -195,7 +197,7 @@ export default defineComponent ({
                 "
                     @click="contacting = true"
                 >
-                    Know more
+                    {{ $page.props.flash.contacted ? 'Thanks' : "Know more"}}
                 </JetButton>
             </div>
             

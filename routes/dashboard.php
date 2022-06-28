@@ -1,12 +1,11 @@
 <?php
 
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Models\Skill;
-use App\Models\Project;
-use App\Http\Controllers\ContactController;
-use App\Mail\ContactedMessage;
+use App\Http\Controllers\SkillController;
+use App\Http\Controllers\ProjectController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,19 +18,6 @@ use App\Mail\ContactedMessage;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'skills' => Skill::all(),
-        'projects' => Project::all(),
-    ]);
-});
-
-Route::post('contact', [ContactController::class, 'contact'])
-    ->name('contact');
-
-
 
 Route::middleware([
     'auth:sanctum',
@@ -42,3 +28,12 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+
+Route::resource('skills', SkillController::class)
+    ->except(['create', 'show', 'edit']);
+
+Route::resource('projects', ProjectController::class)
+    ->except(['create', 'show', 'edit']);
+
+
+
