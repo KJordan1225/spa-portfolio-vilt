@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Models\Skill;
 use App\Models\Project;
 use App\Http\Controllers\ContactController;
+use App\Mail\ContactedMessage;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,9 @@ Route::get('/', function () {
 Route::post('contact', [ContactController::class, 'contact'])
     ->name('contact');
 
+// Route::get('/test', function () {
+//     return new ContactedMessage('test@test.com', 'Just testing');
+// });
 
 Route::middleware([
     'auth:sanctum',
