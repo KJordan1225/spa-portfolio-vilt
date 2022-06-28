@@ -222,15 +222,15 @@ export default defineComponent ({
 
     <jet-modal :show="contacting" closable="true" @close="contacting=null">
         
-            <!-- <div v-if="$page.props.flash.contacted"
+            <div v-if="$page.props.flash.contacted"
                  class="bg-green-400 shadow-2xl p-8 text-center font-bold"
             >
                 <p class="text-8xl m-5">👍</p>
                 <p class="text-5xl font-bold m-2">Thanks!</p>
                 <p class="text=xl m-2">I'll get back to you soon.</p>
-            </div> -->
+            </div>
 
-             <div class="bg-gray-50 shadow-2xl p-8">
+             <div v-else class="bg-gray-50 shadow-2xl p-8">
                 <p class="text-gray-600 text-2xl font-extrabold text-center">
                     Let me know some details
                 </p>
