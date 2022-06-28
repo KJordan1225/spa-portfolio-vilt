@@ -146,7 +146,7 @@ export default defineComponent ({
            
         </Section>
 
-        <Section class="bg-gray-600 text-gray-200 h-screen">
+        <Section class="bg-gray-600 text-gray-200">
             <h2 class="text-6xl font-bold pt-3">Projects</h2>
 
             <div v-for="(project, index) in projects" :key="project">
@@ -191,5 +191,7 @@ export default defineComponent ({
                 <Link class="border-b pb-1 px-2 hover:text-gray-50" href="#">StackOverflow</Link>
             </div>
         </Section>
+
+
     </div>
 </template>
