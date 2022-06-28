@@ -4,6 +4,8 @@ import { Head, Link } from '@inertiajs/inertia-vue3'
 
 import JetApplicationMark from '@/Jetstream/ApplicationMark'
 import JetButton from '@/Jetstream/Button'
+import JetInput from '@/Jetstream/Input'
+import JetModal from '@/Jetstream/Modal'
 
 import Section from '@/components/Section'
 import Skills from '@/components/Skills'
@@ -18,10 +20,13 @@ export default defineComponent ({
         Link,
         JetApplicationMark,
         JetButton,
+        JetModal,
+        JetInput,
         Section,
         Skills,
         Project,
         BeakerIcon,
+        
         
     }, 
 
@@ -39,6 +44,12 @@ export default defineComponent ({
                  + this.projects[index].icon_name
                  + 'Icon.js')
             );
+        }
+    },
+
+    data() {
+        return {
+            contacting: null,
         }
     }
     
@@ -110,7 +121,9 @@ export default defineComponent ({
                     text-sm
                     text-gray-800
                     hover:bg-green-800
-                ">
+                "
+                    @click="contacting = true"
+                >
                     Let's chat
                 </JetButton>               
             </div>
@@ -139,7 +152,9 @@ export default defineComponent ({
                     text-sm
                     text-gray-200
                     hover:bg-indigo-700
-                ">
+                "
+                    @click="contacting = true"
+                >
                     Get in touch
                 </JetButton>
             </div>
@@ -167,7 +182,9 @@ export default defineComponent ({
                     text-sm
                     text-gray-800
                     hover:bg-purple-200
-                ">
+                "
+                    @click="contacting = true"
+                >
                     Know more
                 </JetButton>
             </div>
@@ -191,7 +208,35 @@ export default defineComponent ({
                 <Link class="border-b pb-1 px-2 hover:text-gray-50" href="#">StackOverflow</Link>
             </div>
         </Section>
-
-
     </div>
+
+    <jet-modal :show="contacting" closable="true" @close="contacting=null">
+        <div class="bg-gray-50 shadow-2xl p-8">
+            <p class="text-gray-600 text-2xl font-extrabold text-center">
+            Let me know some details
+        </p>
+
+       <form class="flex flex-col items-center p-16">
+
+            <jet-input 
+                class="px-5 py-3 w-96 border border-gray-600 rounded"
+                type="email"
+                name="email"
+                placeholder="Your email"
+            ></jet-input>
+
+            <textarea 
+                name="message" 
+                class="px-5 py-3 w-96 border border-gray-600 rounded mt-5"
+                placeholder="The details :)"
+                ></textarea>
+
+            <jet-button class="px-5 py-3 mt-5 w-96 bg-purple-600 justify-center rounded-xl text-sm">
+                Get in touch
+            </jet-button>
+       </form>
+
+        </div>
+    </jet-modal>
+
 </template>
