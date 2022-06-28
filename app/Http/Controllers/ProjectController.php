@@ -11,6 +11,10 @@ class ProjectController extends Controller
     public function index() {
         return Inertia::render('Projects/All', [
             'projects' => Project::all(),
+            'availableTextColors' =>Project::getAvailableTextColors(),
+            'availableIcons' =>Project::getAvailableIconNames(),            
         ]);
     }
 }
+
+
