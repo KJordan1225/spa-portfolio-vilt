@@ -94,7 +94,7 @@
         
             <div class="bg-gray-50 shadow-2xl p-8">
                 <p class="text-gray-600 text-2xl font-extrabold text-center">
-                    Add New Skill
+                    Add New Project
                 </p>
 
             <form 

@@ -26,7 +26,7 @@ class SkillController extends Controller
 
             'color' => [
                 'required',
-                'in:'.implode(',',Skill::getAvailableBackgroundColors())
+                'in:'.implode(',',Skill::getAvailableBackgroundColors()),
             ],
         ]);
 

@@ -18,8 +18,9 @@ class ProjectController extends Controller
     }
 
     public function store (Request $request){
+
         $request->validate([
-            'tiitle' => [
+            'title' => [
                 'required',
                 'max:255',
                 Rule::unique(Project::class)
@@ -28,7 +29,6 @@ class ProjectController extends Controller
             'description' => [
                 'required',
                 'max:255',
-                'min:10'
             ],
 
             'color' => [

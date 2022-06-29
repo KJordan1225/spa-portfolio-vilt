@@ -31106,7 +31106,7 @@ var _hoisted_15 = {
 
 var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "text-gray-600 text-2xl font-extrabold text-center"
-}, " Add New Skill ", -1
+}, " Add New Project ", -1
 /* HOISTED */
 );
 
@@ -32178,7 +32178,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "flex items-center px-24 py-6 justify-between"
+  "class": "flex items-center px-14 py-6 justify-between"
 };
 var _hoisted_2 = {
   "class": "text-xl font-extrabold text-gray-800 mx-1"

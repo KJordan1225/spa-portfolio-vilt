@@ -2,7 +2,7 @@
     <section class="
         flex
         items-center
-        px-24
+        px-14
         py-6
         justify-between
     ">
@@ -14,8 +14,7 @@
             border-double
             border-8
         "
-        :class="background">
-    
+        :class="background">   
         </div>
         <p class="text-xl font-extrabold text-gray-800 mx-1">
             <slot></slot>
