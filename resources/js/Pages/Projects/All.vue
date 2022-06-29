@@ -108,10 +108,7 @@
 <jet-modal :show="acting" closable="true" @close="acting=null">
         
             <div class="bg-gray-50 shadow-2xl p-8">
-                <p class="text-gray-600 text-2xl font-extrabold text-center">
-                    Add New Project
-                </p>
-
+                
             <form 
                     class="flex flex-col items-center p-16"
                     @submit.prevent="submit"
@@ -180,7 +177,7 @@
                         </span>
 
                         <span v-show="!form.processing">
-                            Add Project
+                            Submit
                         </span>
                     </jet-button>
             </form>
