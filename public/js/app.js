@@ -26537,6 +26537,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Jetstream/Input */ "./resources/js/Jetstream/Input.vue");
 /* harmony import */ var _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Jetstream/InputError */ "./resources/js/Jetstream/InputError.vue");
 /* harmony import */ var _Jetstream_Modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Jetstream/Modal */ "./resources/js/Jetstream/Modal.vue");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+
 
 
 
@@ -26597,6 +26599,17 @@ __webpack_require__.r(__webpack_exports__);
         'icon_name': ''
       })
     };
+  },
+  setup: function setup() {
+    var destroy = function destroy(id) {
+      if (confirm('Are you sure?')) {
+        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_6__.Inertia["delete"](route('projects.destroy', id));
+      }
+    };
+
+    return {
+      destroy: destroy
+    };
   }
 });
 
@@ -26618,6 +26631,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_Input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Jetstream/Input */ "./resources/js/Jetstream/Input.vue");
 /* harmony import */ var _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Jetstream/InputError */ "./resources/js/Jetstream/InputError.vue");
 /* harmony import */ var _Jetstream_Modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Jetstream/Modal */ "./resources/js/Jetstream/Modal.vue");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+
 
 
 
@@ -26661,6 +26676,17 @@ __webpack_require__.r(__webpack_exports__);
         'name': '',
         'color': ''
       })
+    };
+  },
+  setup: function setup() {
+    var destroy = function destroy(id) {
+      if (confirm('Are you sure?')) {
+        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__.Inertia["delete"](route('skills.destroy', id));
+      }
+    };
+
+    return {
+      destroy: destroy
     };
   }
 });
@@ -31192,15 +31218,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }, 1032
         /* PROPS, DYNAMIC_SLOTS */
         , ["onClick"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
-          "class": "border border-red-500 text-red-500 bg-red-50 hover:bg-red-100 mr-2"
+          "class": "border border-red-500 text-red-500 bg-red-50 hover:bg-red-100 mr-2",
+          onClick: function onClick($event) {
+            return $setup.destroy(project.id);
+          }
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
             return [_hoisted_13];
           }),
-          _: 1
-          /* STABLE */
+          _: 2
+          /* DYNAMIC */
 
-        })])])]);
+        }, 1032
+        /* PROPS, DYNAMIC_SLOTS */
+        , ["onClick"])])])]);
       }), 128
       /* KEYED_FRAGMENT */
       ))])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_14, " There are no projects yet. Let's create one :) "))])])];
@@ -31386,7 +31417,7 @@ var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 
 var _hoisted_13 = {
   key: 1,
-  "class": "bg-red-100 border border-red-400 p-3 rounded-lg text-red-800"
+  "class": "bg-red-100 border border-red-400 p-3 rounded-lg text-red-800 text-left mt-5"
 };
 var _hoisted_14 = {
   "class": "bg-gray-50 shadow-2xl p-8"
@@ -31462,15 +31493,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }, 1032
         /* PROPS, DYNAMIC_SLOTS */
         , ["onClick"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
-          "class": "border border-red-500 text-red-500 bg-red-50 hover:bg-red-100 mr-2"
+          "class": "border border-red-500 text-red-500 bg-red-50 hover:bg-red-100 mr-2",
+          onClick: function onClick($event) {
+            return $setup.destroy(skill.id);
+          }
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
             return [_hoisted_12];
           }),
-          _: 1
-          /* STABLE */
+          _: 2
+          /* DYNAMIC */
 
-        })])])]);
+        }, 1032
+        /* PROPS, DYNAMIC_SLOTS */
+        , ["onClick"])])])]);
       }), 128
       /* KEYED_FRAGMENT */
       ))])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_13, " There are no skills yet. Let's create one :) "))])])];

@@ -76,6 +76,9 @@
                                     class="border border-red-500 text-red-500 
                                     bg-red-50 hover:bg-red-100 mr-2"
                                     
+                                    @click="
+                                        destroy(skill.id)
+                                    "
                                     >
                                         Delete
                                 </jet-button>
@@ -84,7 +87,7 @@
                     </tbody>
                 </table>
                 <div v-else class="bg-red-100 border border-red-400 p-3 rounded-lg
-                text-red-800">
+                text-red-800 text-left mt-5">
                     There are no skills yet. Let's create one :)
                 </div>
             </div>
@@ -159,6 +162,7 @@ import JetButton from '@/Jetstream/Button'
 import JetInput from '@/Jetstream/Input'
 import JetInputError from '@/Jetstream/InputError'
 import JetModal from '@/Jetstream/Modal'
+import {Inertia} from '@inertiajs/inertia'
 
 export default {
     components: {
@@ -198,6 +202,16 @@ export default {
             }),
         }
     },
+    setup() {
+        const destroy = (id) => {
+            if(confirm('Are you sure?')) {
+                Inertia.delete(route('skills.destroy', id ))
+            }
+        }
+
+         return { destroy }
+    }
+  
 
 }
 </script>

@@ -89,6 +89,10 @@
                                 <jet-button 
                                     class="border border-red-500 text-red-500 
                                     bg-red-50 hover:bg-red-100 mr-2"
+
+                                    @click="
+                                        destroy(project.id)
+                                    "
                                     >
                                         Delete
                                 </jet-button>
@@ -198,6 +202,7 @@ import { defineAsyncComponent } from 'vue'
 import JetInput from '@/Jetstream/Input'
 import JetInputError from '@/Jetstream/InputError'
 import JetModal from '@/Jetstream/Modal'
+import {Inertia} from '@inertiajs/inertia'
 
 export default {
     components: {
@@ -249,6 +254,16 @@ export default {
             }),
         }
     },
+
+    setup() {
+        const destroy = (id) => {
+            if(confirm('Are you sure?')) {
+                Inertia.delete(route('projects.destroy', id ))
+            }
+        }
+
+         return { destroy }
+    }
     
 }
 </script>
