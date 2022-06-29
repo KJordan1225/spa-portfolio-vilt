@@ -26570,7 +26570,7 @@ __webpack_require__.r(__webpack_exports__);
       // use this.form.submit so we can chane trhe method dynamically
       // on success of submitting form, clear the fields and set acting to null.
       // REMEMBER: use tabl;e column names in submit method.
-      this.form.submit('post', route('projects.store'), {
+      this.form.submit(this.my_method, this.action, {
         onSuccess: function onSuccess() {
           _this2.form.reset('title');
 
@@ -26588,6 +26588,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       acting: null,
+      method: null,
+      action: null,
       form: this.$inertia.form({
         'title': '',
         'description': '',
@@ -31149,7 +31151,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
         "class": "p-3 border-2 border-blue-500 text-blue-500 bg-blue-100 hover:bg-red-200 font-bold rounded-xl",
         onClick: _cache[0] || (_cache[0] = function ($event) {
-          return $data.acting = true;
+          $data.acting = true;
+          _ctx.my_method = 'post';
+          $data.action = _ctx.route('projects.store');
         })
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -31174,15 +31178,26 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)($options.componentName(index))))], 2
         /* CLASS */
         ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
-          "class": "border border-indigo-500 text-indigo-500 bg-indigo-50 hover:bg-indigo-100 mr-2"
+          "class": "border border-indigo-500 text-indigo-500 bg-indigo-50 hover:bg-indigo-100 mr-2",
+          onClick: function onClick($event) {
+            $data.acting = true;
+            _ctx.my_method = 'put';
+            $data.action = _ctx.route('projects.update', [project.id]);
+            $data.form.title = project.title;
+            $data.form.description = project.description;
+            $data.form.color = project.color;
+            $data.form.icon_name = project.icon_name;
+          }
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
             return [_hoisted_12];
           }),
-          _: 1
-          /* STABLE */
+          _: 2
+          /* DYNAMIC */
 
-        }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
+        }, 1032
+        /* PROPS, DYNAMIC_SLOTS */
+        , ["onClick"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
           "class": "border border-red-500 text-red-500 bg-red-50 hover:bg-red-100 mr-2"
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {

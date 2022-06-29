@@ -18,7 +18,12 @@
                             hover:bg-red-200 
                             font-bold
                             rounded-xl" 
-                            @click="acting = true"
+                           
+                            @click="
+                                acting = true;
+                                my_method = 'post';
+                                action = route('projects.store');
+                            "
                             >
                             Add New +
                     </jet-button>
@@ -68,6 +73,16 @@
                                 <jet-button 
                                     class="border border-indigo-500 text-indigo-500 
                                     bg-indigo-50 hover:bg-indigo-100 mr-2"
+
+                                    @click="
+                                        acting = true;
+                                        my_method = 'put';
+                                        action = route('projects.update', [project.id]);
+                                        form.title = project.title;
+                                        form.description = project.description;
+                                        form.color = project.color;
+                                        form.icon_name = project.icon_name;
+                                    "
                                     >
                                         Edit
                                 </jet-button>
@@ -213,7 +228,7 @@ export default {
             // on success of submitting form, clear the fields and set acting to null.
             // REMEMBER: use tabl;e column names in submit method.
 
-            this.form.submit('post', route('projects.store'), {
+            this.form.submit(this.my_method, this.action, {
                  onSuccess: () => {
                     this.form.reset('title');
                     this.form.reset('description');
@@ -227,6 +242,8 @@ export default {
     data() {
         return {
             acting: null,
+            method: null,
+            action: null,
             form: this.$inertia.form({
                 'title':'',
                 'description':'',
