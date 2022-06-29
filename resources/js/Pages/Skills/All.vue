@@ -18,7 +18,12 @@
                             hover:bg-red-200 
                             font-bold
                             rounded-xl" 
-                            @click="acting = true"
+
+                            @click="
+                                acting = true;
+                                my_method = 'post';
+                                action = route('skills.store');
+                            "
                             >
                             Add New +
                     </jet-button>
@@ -56,12 +61,21 @@
                                 <jet-button 
                                     class="border border-indigo-500 text-indigo-500 
                                     bg-indigo-50 hover:bg-indigo-100 mr-2"
+
+                                    @click="
+                                        acting = true;
+                                        my_method = 'put';
+                                        action = route('skills.update', [skill.id]);
+                                        form.name = skill.name;
+                                        form.color = skill.color;
+                                    "
                                     >
                                         Edit
                                 </jet-button>
                                 <jet-button 
                                     class="border border-red-500 text-red-500 
                                     bg-red-50 hover:bg-red-100 mr-2"
+                                    
                                     >
                                         Delete
                                 </jet-button>
@@ -166,8 +180,8 @@ export default {
             // use this.form.submit so we can chane trhe method dynamically
             // on success of submitting form, clear the fields and set acting to null.
 
-            this.form.submit('post', route('skills.store'), {
-                 onSuccess: () => {
+            this.form.submit(this.my_method, this.action, {
+                 onSuccess: () => {            
                     this.form.reset('name');
                     this.form.reset('color');
                     this.acting = null;
@@ -179,6 +193,8 @@ export default {
     data() {
         return {
             acting: null,
+            my_method: null,
+            action: null,
             form: this.$inertia.form({
                 'name':'',
                 'color':'',
