@@ -138,6 +138,7 @@
 
                     <jet-input-error :message="form.errors.color" />
 
+                    <!-- for v-model use table column name -->
                     <select 
                         class="
                             w-96
@@ -145,7 +146,7 @@
                             border-gray-600
                             rounded
                             mt-5"
-                        v-model="form.icon"
+                        v-model="form.icon_name"
                         >
                             <option value="">Select an icon</option>
                             <option v-for="icon in availableIcons" :key="icon" :value="icon">
@@ -153,7 +154,8 @@
                             </option>
                     </select>
 
-                    <jet-input-error :message="form.errors.icon" />
+                     <!-- for error message use table column name -->
+                    <jet-input-error :message="form.errors.icon_name" />
 
                     <jet-button class="px-5 py-3 mt-5 w-96 bg-purple-600 justify-center rounded-xl text-sm "
                                     :disabled="form.processing">
@@ -209,13 +211,14 @@ export default {
         submit(){
             // use this.form.submit so we can chane trhe method dynamically
             // on success of submitting form, clear the fields and set acting to null.
+            // REMEMBER: use tabl;e column names in submit method.
 
             this.form.submit('post', route('projects.store'), {
                  onSuccess: () => {
                     this.form.reset('title');
                     this.form.reset('description');
                     this.form.reset('color');
-                    this.form.reset('icon');
+                    this.form.reset('icon_name');
                     this.acting = null;
                 }
             });
@@ -228,7 +231,7 @@ export default {
                 'title':'',
                 'description':'',
                 'color':'',
-                'icon':'',
+                'icon_name':'',
             }),
         }
     },

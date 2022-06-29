@@ -81,16 +81,16 @@ export default defineComponent ({
             <jet-application-mark class="h-12 w-auto"></jet-application-mark>
         </div>
         <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-            <Link v-if="$page.props.user" :href="route('dashboard')" class="text-sm text-gray-300 underline">
+            <Link v-if="$page.props.user" :href="route('dashboard')" class="text-sm text-gray-100 underline">
                 Dashboard
             </Link>
 
             <template v-else>
-                <Link :href="route('login')" class="text-sm text-gray-700 underline">
+                <Link :href="route('login')" class="text-sm text-gray-100 underline">
                     Log in
                 </Link>
 
-                <Link v-if="canRegister" :href="route('register')" class="ml-4 text-sm text-gray-700 underline">
+                <Link v-if="canRegister" :href="route('register')" class="ml-4 text-sm text-gray-100 underline">
                     Register
                 </Link>
             </template>
